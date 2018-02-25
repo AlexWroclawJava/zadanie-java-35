@@ -37,14 +37,13 @@ public class Ksiazki {
         this.pages = pages;
     }
 
-
+    public Ksiazki(){
+    }
 
     @Override
     public String toString() {
         return "Tytul: " + getTitle() + " autor: " + getAuthor() + " liczba stron: " + getPages();
     }
-
-
 
     @Override
     public boolean equals(Object o) {

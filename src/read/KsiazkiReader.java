@@ -3,14 +3,9 @@ package read;
 import data.Ksiazki;
 import java.util.Scanner;
 
-
 public class KsiazkiReader {
 
         Scanner scanner = new Scanner(System.in);
-
-            public void zamknijSkaner() {
-            scanner.close();
-            }
 
         public Ksiazki stworzKsiazki() {
             System.out.println("Tytuł: ");
@@ -23,5 +18,4 @@ public class KsiazkiReader {
 
             return new Ksiazki(title, author, pages);
         }
-
 }

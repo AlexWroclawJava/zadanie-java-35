@@ -1,53 +1,35 @@
 package app;
-
+import compare.KsiazkiComparator;
 import data.Ksiazki;
 import read.KsiazkiReader;
 
+import java.util.Scanner;
+
 public class KsiazkiTest {
+
     public static void main(String[] args) {
 
-        int tablicaLength = 3;
-        int zmienna = 0;
-
-        Ksiazki[] ksiazki = new Ksiazki[3];
+        int liczba_ksiazek;
         KsiazkiReader ksiazkiReader = new KsiazkiReader();
+        KsiazkiComparator ksiazkiComparator = new KsiazkiComparator();
 
+        System.out.println("Ile książek chcesz wprowadzić do bazy danych? ");
+        Scanner scanner = new Scanner(System.in);
+        liczba_ksiazek = scanner.nextInt();
+        scanner.nextLine();
+        Ksiazki[] ksiazki = new Ksiazki[liczba_ksiazek];
 
-            for (int i = 0; i < 3; i++) {
-                System.out.println("Wprowadź książkę numer: " + (i + 1));
+        int i = 0;
+            do {
+                System.out.println("\nWprowadź książkę numer: " + (i + 1));
                 ksiazki[i] = ksiazkiReader.stworzKsiazki();
+                ksiazkiComparator.comparator(ksiazki, i);
+                i++;
+            } while (i < liczba_ksiazek);
+
+            System.out.println("\nWszystkie dostepne książki w bazie to: ");
+            for (Ksiazki ksiazki1 : ksiazki) {
+                System.out.println(ksiazki1);
             }
-
-                do {
-                    if (ksiazki[1].equals(ksiazki[0])) {
-                        System.out.println("Wykryto Duplikat");
-                        zmienna = 1;
-                        System.out.println("Wprowadź ponownie książkę numer: " + 2);
-                        ksiazki[1] = ksiazkiReader.stworzKsiazki();
-                    }
-
-                    if (ksiazki[2].equals(ksiazki[0])) {
-                        System.out.println("Wykryto Duplikat");
-                        zmienna = 1;
-                        System.out.println("Wprowadź ponownie książkę numer: " + 3);
-                        ksiazki[2] = ksiazkiReader.stworzKsiazki();
-                        break;
-                    }
-
-                    if (ksiazki[2].equals(ksiazki[1])) {
-                        System.out.println("Wykryto Duplikat");
-                        zmienna = 1;
-                        System.out.println("Wprowadź ponownie książkę numer: " + 3);
-                        ksiazki[2] = ksiazkiReader.stworzKsiazki();
-                        break;
-                    }
-                } while (zmienna == 1);
-
-
-
-        System.out.println("\nWszystkie dostepne książki to: ");
-        for (Ksiazki ksiazki1 : ksiazki) {
-            System.out.println(ksiazki1);
-        }
     }
 }
