@@ -1,7 +1,6 @@
 package read;
 
 import data.Ksiazka;
-
 import java.util.Scanner;
 
 public class KsiazkiUtils {
