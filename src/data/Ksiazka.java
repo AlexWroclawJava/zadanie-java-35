@@ -1,6 +1,6 @@
 package data;
 
-public class Ksiazki {
+public class Ksiazka {
 
         private String title;
         private String author;
@@ -31,13 +31,13 @@ public class Ksiazki {
         this.pages = pages;
     }
 
-    public Ksiazki(String title, String author, int pages) {
+    public Ksiazka(String title, String author, int pages) {
         this.title = title;
         this.author = author;
         this.pages = pages;
     }
 
-    public Ksiazki(){
+    public Ksiazka(){
     }
 
     @Override
@@ -48,13 +48,13 @@ public class Ksiazki {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Ksiazki)) return false;
+        if (!(o instanceof Ksiazka)) return false;
 
-        Ksiazki ksiazki = (Ksiazki) o;
+        Ksiazka ksiazka = (Ksiazka) o;
 
-        if (getPages() != ksiazki.getPages()) return false;
-        if (getTitle() != null ? !getTitle().equals(ksiazki.getTitle()) : ksiazki.getTitle() != null) return false;
-        return getAuthor() != null ? getAuthor().equals(ksiazki.getAuthor()) : ksiazki.getAuthor() == null;
+        if (getPages() != ksiazka.getPages()) return false;
+        if (getTitle() != null ? !getTitle().equals(ksiazka.getTitle()) : ksiazka.getTitle() != null) return false;
+        return getAuthor() != null ? getAuthor().equals(ksiazka.getAuthor()) : ksiazka.getAuthor() == null;
     }
 
     @Override
